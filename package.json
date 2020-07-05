@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "mocha",
-    "cover": "nyc --reporter=text mocha --exit",
-    "coverage": "coveralls"
+    "cover": "nyc --reporter=text mocha --exit"
   },
   "author": "xiezuobing",
   "license": "MIT",
