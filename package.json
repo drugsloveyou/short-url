@@ -1,0 +1,30 @@
+{
+  "name": "shorturl",
+  "version": "1.0.0",
+  "description": "short url demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha",
+    "cover": "nyc --reporter=text mocha --exit",
+    "coverage": "coveralls"
+  },
+  "author": "xiezuobing",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.1",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "mongoose": "^5.9.21",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "coveralls": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2"
+  }
+}
