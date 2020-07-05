@@ -5,6 +5,8 @@
 
 启动项目
 
+Server running on  http://localhost:8080
+
 ##### npm test
 
 自动化测试
@@ -97,7 +99,6 @@ MongoDB Connected to: mongodb://localhost:27017/short-url
     ✓ #test shortId
     ✓ #test index.js
 ```
-Server running on  http://localhost:8080
 
 #test-coverage
 
