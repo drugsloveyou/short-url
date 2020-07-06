@@ -4,9 +4,10 @@
   "description": "short url demo",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./bin/www",
     "test": "mocha",
-    "cover": "nyc --reporter=text mocha --exit"
+    "cover": "nyc --reporter=text mocha ./test/**/*.test.js --exit",
+    "coverage": "nyc --reporter=text --reporter=html mocha ./test/**/*.test.js "
   },
   "author": "xiezuobing",
   "license": "MIT",

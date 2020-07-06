@@ -1,11 +1,10 @@
-var assert = require("assert");
 const request = require("supertest");
 const config = require("config");
-const UrlModel = require("../models/shortId");
+const UrlModel = require("../../models/shortId");
 
-const app = require("../app");
-const logger = require("../utils/logger");
-const md5 = require("../utils/md5");
+const app = require("../../app");
+const logger = require("../../utils/logger");
+const md5 = require("../../utils/md5");
 
 const testUrl = "https://www.baidu.com/";
 
@@ -25,7 +24,7 @@ describe("#test express app /api/shortId/*", async function () {
     server.close();
   });
 
-  beforeEach(function () {});
+  beforeEach(function () { });
 
   afterEach(async function () {
     if (!code) {
@@ -37,9 +36,9 @@ describe("#test express app /api/shortId/*", async function () {
 
   it(
     "#test get /api/shortId/?url=" +
-      testUrl +
-      "?q=" +
-      Math.random().toString(36).slice(2),
+    testUrl +
+    "?q=" +
+    Math.random().toString(36).slice(2),
     function (done) {
       request(server)
         .get(`/api/shortId/`)

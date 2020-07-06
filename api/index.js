@@ -5,7 +5,7 @@ const UrlModel = require("../models/shortId");
 router.get("/:code", async (req, res, next) => {
   try {
     const code = req.params.code;
-    const url = await UrlModel.findOne({ code });
+    const url = await UrlModel.findOne({ _id: code });
     if (url) {
       res.redirect(301, url.url);
     } else {
