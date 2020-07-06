@@ -5,6 +5,7 @@ const shortId = require("../utils/short-id");
 const config = require("config");
 const UrlModel = require("../models/shortId");
 const md5 = require("../utils/md5");
+const clusterWorkId = require("../utils/cluster-work-id");
 
 //根据长链接获取短链接
 router.get("/shortId", async function (req, res, next) {
@@ -16,7 +17,7 @@ router.get("/shortId", async function (req, res, next) {
       if (urlModel) {
         res.json({
           code: urlModel.code,
-          shortId: `http://localhost:${config.get("port")}/${urlModel.code}`,
+          shortId: `http://localhost:${config.get("port")}/api/shortId/${urlModel.code}`,
         });
       } else {
         const code = shortId.generate();
@@ -28,7 +29,7 @@ router.get("/shortId", async function (req, res, next) {
         await urlModel.save();
         res.json({
           code,
-          shortId: `http://localhost:${config.get("port")}/${code}`,
+          shortId: `http://localhost:${config.get("port")}/api/shortId/${code}`,
         });
       }
     } catch (error) {
