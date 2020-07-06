@@ -1,5 +1,12 @@
 # node.js
 node_modules/
-coverage/
 npm-debug.log
 yarn-error.log
+
+# #test
+
+# .nyc_output
+# coverage/
+
+# #editor
+# .DS_Store
