@@ -32,7 +32,6 @@ function generate() {
       .slice(2)
       .slice(0, 6 - shortId.length);
   }
-
   return shortId;
 }
 
