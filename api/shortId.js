@@ -41,7 +41,7 @@ router.get("/shortId", async function (req, res, next) {
 });
 
 //根据短链接获取长链接
-router.get("/shortId/:code", async function (req, res, next) {
+router.get("/url/:code", async function (req, res, next) {
   try {
     const code = req.params.code;
     const url = await UrlModel.findOne({ code });
@@ -50,7 +50,7 @@ router.get("/shortId/:code", async function (req, res, next) {
         url: `${url.url}`,
       });
     } else {
-      res.status(404).json("");
+      res.status(404).json("404 not found");
     }
   } catch (error) {
     res.status(500).json("Server error");

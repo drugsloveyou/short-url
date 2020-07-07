@@ -27,6 +27,11 @@ describe('test/api/index.test.js 测试接口/index', async () => {
     server.close();
   });
 
+  //------
+  // 并发与并行请求测试
+  //------
+
+
   it('不传短码param /', function (done) {
     request(server)
       .get('/')
