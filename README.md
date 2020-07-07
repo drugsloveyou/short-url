@@ -76,59 +76,70 @@ code: String [短链接code id]
 
 #### 测试结果
 
-![Image text](test-picture.jpg)
+![Image text](test-picture.png)
+```
+  test/api/index.test.js 测试接口/index
+    ✓ 不传短码param /
+    ✓ 不存在这个短码 /123456789
+    ✓ 存在这个短码
 
-#test express app /api/shortId/\*
+  test/api/short-id.test.js /api/url/:code 接口测试
+    参数类型正常
+      ✓ 存在传入短码 
+      ✓ 不存在短码
+    参数类型不正常或不存在 404
+      ✓ 不传参数code
+      ✓ code传特殊字符串
+    并发
+      ✓ code参数为特殊字符并且数据库中不存在，并发1000次请求 (998ms)
 
-MongoDB Connected to: mongodb://localhost:27017/short-url
+  test/api/short-id.test.js /api/shortId?url=${url} 接口测试
+    参数类型正常
+      ✓ 存在该长链接
+      ✓ 不存该长链接
+    参数类型不正常或不存在
+      ✓ 参数类型不是链接
+      ✓ 不传参数url
+
+  test/utils/md5.test.js
+    字符串为空的情况
+      ✓ 字符串为""
+      ✓ 字符串为null
+      ✓ 字符串为undefined
+      ✓ 字符串为NaN
+    str参数不为空
+      ✓ 字符串为 8186070182004967
+
+  test/utils/shortId.test.js
+    ✓ 生成shortId
+    ✓ 重复10000次不会重复 (45ms)
+
+  19 passing (1s)
 
 ```
-    ✓ #test get /api/shortId/?url=https://www.baidu.com/?q=r0aasf9anmi (45ms)
-    ✓ #test get /api/shortId/?url=https://www.baidu.com/
-    ✓ #test get /api/shortId/?url=1 404
-    ✓ #test get /api/shortId/:code 200
-    ✓ #test get /api/shortId/23823 404
-    ✓ #test get /:code 301
-    ✓ #test get /:1232130 404
-```
-
-#test utils
-
-```
-    ✓ #test md5
-    ✓ #test shortId
-    ✓ #test index.js
-```
-
-#test-coverage
-
-11 passing (131ms)
-
 ```
 ---------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   94.74 |    86.36 |     100 |   94.74 |
- shortUrl            |     100 |      100 |     100 |     100 |
-  app.js             |     100 |      100 |     100 |     100 |
-  index.js           |     100 |      100 |     100 |     100 |
- shortUrl/api        |   92.86 |      100 |     100 |   92.86 |
-  index.js           |   91.67 |      100 |     100 |   91.67 | 15
-  shortId.js         |   93.33 |      100 |     100 |   93.33 | 35,55
- shortUrl/initial    |   88.89 |      100 |     100 |   88.89 |
-  apiInitial.js      |     100 |      100 |     100 |     100 |
-  index.js           |     100 |      100 |     100 |     100 |
-  mongoInitial.js    |      80 |      100 |     100 |      80 | 16-17
- shortUrl/models     |     100 |      100 |     100 |     100 |
-  shortId.js         |     100 |      100 |     100 |     100 |
- shortUrl/utils      |    97.5 |       75 |     100 |    97.5 |
-  cluster-work-id.js |      80 |       50 |     100 |      80 | 5
-  logger.js          |     100 |      100 |     100 |     100 |
-  md5.js             |     100 |      100 |     100 |     100 |
-  short-id.js        |     100 |     87.5 |     100 |     100 | 29
+All files            |   96.26 |     87.5 |     100 |   96.26 |                   
+ shortUrl            |     100 |      100 |     100 |     100 |                   
+  app.js             |     100 |      100 |     100 |     100 |                   
+ shortUrl/api        |   93.02 |      100 |     100 |   93.02 |                   
+  index.js           |   91.67 |      100 |     100 |   91.67 | 15                
+  shortId.js         |   93.55 |      100 |     100 |   93.55 | 36,56             
+ shortUrl/initial    |     100 |      100 |     100 |     100 |                   
+  apiInitial.js      |     100 |      100 |     100 |     100 |                   
+  index.js           |     100 |      100 |     100 |     100 |                   
+  mongoInitial.js    |     100 |      100 |     100 |     100 |                   
+ shortUrl/models     |     100 |      100 |     100 |     100 |                   
+  shortId.js         |     100 |      100 |     100 |     100 |                   
+ shortUrl/utils      |   97.56 |    78.57 |     100 |   97.56 |                   
+  cluster-work-id.js |      80 |       50 |     100 |      80 | 6                 
+  logger.js          |     100 |      100 |     100 |     100 |                   
+  md5.js             |     100 |      100 |     100 |     100 |                   
+  short-id.js        |     100 |     87.5 |     100 |     100 | 29                
 ---------------------|---------|----------|---------|---------|-------------------
 ```
-
 #### 测试用例问题修改
 
 H1
