@@ -77,13 +77,18 @@ code: String [短链接code id]
 #### 测试结果
 
 ![Image text](test-picture.png)
-```
+
   test/api/index.test.js 测试接口/index
+
+```
     ✓ 不传短码param /
     ✓ 不存在这个短码 /123456789
     ✓ 存在这个短码
+```
 
   test/api/short-id.test.js /api/url/:code 接口测试
+
+```
     参数类型正常
       ✓ 存在传入短码 
       ✓ 不存在短码
@@ -92,16 +97,22 @@ code: String [短链接code id]
       ✓ code传特殊字符串
     并发
       ✓ code参数为特殊字符并且数据库中不存在，并发1000次请求 (998ms)
+```
 
   test/api/short-id.test.js /api/shortId?url=${url} 接口测试
+
+```
     参数类型正常
       ✓ 存在该长链接
       ✓ 不存该长链接
     参数类型不正常或不存在
       ✓ 参数类型不是链接
       ✓ 不传参数url
+```
 
   test/utils/md5.test.js
+
+```
     字符串为空的情况
       ✓ 字符串为""
       ✓ 字符串为null
@@ -109,14 +120,17 @@ code: String [短链接code id]
       ✓ 字符串为NaN
     str参数不为空
       ✓ 字符串为 8186070182004967
+```
 
   test/utils/shortId.test.js
+
+```
     ✓ 生成shortId
     ✓ 重复10000次不会重复 (45ms)
+```
 
   19 passing (1s)
 
-```
 ```
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -141,8 +155,6 @@ All files            |   96.26 |     87.5 |     100 |   96.26 |
 ---------------------|---------|----------|---------|---------|-------------------
 ```
 #### 测试用例问题修改
-
-H1
 
 1、corner case 没有 cover
 4、注意检查边界
