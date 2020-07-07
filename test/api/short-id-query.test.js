@@ -9,7 +9,7 @@ const md5 = require("../../utils/md5");
 
 const testUrl = "https://www.baidu.com/";
 
-describe("test/api/short-id.test.js /api/shortId?url=${url} 接口测试", async function () {
+describe("test/api/short-id-query.test.js /api/shortId?url=${url} 接口测试", async function () {
   var server;
   var md5Code = md5(testUrl);
   before(async () => {

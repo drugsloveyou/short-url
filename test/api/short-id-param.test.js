@@ -10,7 +10,7 @@ const assert = require("assert");
 
 const testUrl = "https://www.baidu.com/";
 
-describe("test/api/short-id.test.js /api/url/:code 接口测试", async function () {
+describe("test/api/short-id-params.test.js /api/url/:code 接口测试", async function () {
   var server;
   var md5Code = md5(testUrl);
   var code;

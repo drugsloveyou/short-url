@@ -86,7 +86,7 @@ code: String [短链接code id]
     ✓ 存在这个短码
 ```
 
-  test/api/short-id.test.js /api/url/:code 接口测试
+  test/api/short-id-param.test.js /api/url/:code 接口测试
 
 ```
     参数类型正常
@@ -99,7 +99,7 @@ code: String [短链接code id]
       ✓ code参数为特殊字符并且数据库中不存在，并发1000次请求 (998ms)
 ```
 
-  test/api/short-id.test.js /api/shortId?url=${url} 接口测试
+  test/api/short-id-query.test.js /api/shortId?url=${url} 接口测试
 
 ```
     参数类型正常
